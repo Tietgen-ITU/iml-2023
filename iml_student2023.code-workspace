@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "IML",
+			"path": "vscode"
+		}
+	],
+	"settings": {
+		"workbench.colorTheme": "Quiet Light",
+		"git.openRepositoryInParentFolders": "always"
+	}
+}
