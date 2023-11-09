@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy
-import cv2 as cv
+#import cv2 as cv
 
 import os
 from glob import glob
@@ -60,10 +60,10 @@ def read_shape_file_vector(path):
     return res
 
 
-def read_image_files(path, scale=0.25):
-    image_files = glob(os.path.join(path, '*.jpg'))
-    images = [cv.imread(imf) for imf in image_files]
-    return [cv.resize(img, (0, 0), fx=scale, fy=scale) for img in images]
+# def read_image_files(path, scale=0.25):
+#     image_files = glob(os.path.join(path, '*.jpg'))
+#     images = [cv.imread(imf) for imf in image_files]
+#     return [cv.resize(img, (0, 0), fx=scale, fy=scale) for img in images]
 
 
 def face_shape_data(path):
@@ -83,8 +83,8 @@ def face_shape_data(path):
     shape_files = [os.path.join(path, 'asf', f'{b}.asf') for b in bases]
 
     shapes = [read_shape_file_vector(sf).reshape(-1) for sf in shape_files]
-    images = [cv.imread(imf) for imf in image_files]
-    print(len(shapes))
+    #images = [cv.imread(imf) for imf in image_files]
+    images = [1,2]
     return np.array(shapes), np.array(images)
 
 
@@ -101,13 +101,13 @@ def plot_many_faces(faces,name=None):
     Plot multiple faces, takes a list of faces as input
     """
     
-    plt.figure(figsize=(int(5*len(faces)),int(1+len(faces)//6)*5))
+    plt.figure(figsize=(int(6*len(faces)),int(1+len(faces)//7)*6))
    
     if name!=None:
         plt.suptitle(name, fontsize=30, y=1.05)
     # Enumarate the ID, window name and faces passed as parameter.
-    if len(faces) > 5:
-        row = 5
+    if len(faces) > 6:
+        row = 6
     else:
         row = len(faces)
     for (pos, vec) in enumerate(faces):
